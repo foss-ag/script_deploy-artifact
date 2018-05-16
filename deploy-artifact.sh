@@ -17,7 +17,7 @@ UPLOADDIR=$(basename ${TRAVIS_REPO_SLUG})-${TRAVIS_BRANCH}
 # Creating a directory recursively is not possible with curl, use helper-script
 wget https://raw.githubusercontent.com/foss-ag/script_curl-dirup/v1.0.1/curl-dirup.sh -O curl-dirup.sh && chmod +x curl-dirup.sh
 
-mkdir -p $DIR 2>/dev/null
-cp -a $@ $DIR
+mkdir -p $UPLOADDIR 2>/dev/null
+cp -a $@ $UPLOADDIR
 # Actual upload
-./curl-dirup.sh $TURL $TUSER:$PDFPW $DIR
+./curl-dirup.sh $TURL $TUSER:$PDFPW $UPLOADDIR
